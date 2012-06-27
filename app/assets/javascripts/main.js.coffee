@@ -1,5 +1,6 @@
 window.App = {}
 
 $(->
-  # Do nothing for now
+  return unless App.init
+  $('body').html HoganTemplates['index'].render(movies: App.init)
 )
