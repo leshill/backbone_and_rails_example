@@ -1,10 +1,22 @@
-class App.Views.New extends App.View
+class App.Views.New extends App.FormView
   template: 'new'
 
-  events: ->
-    _.extend super
-      'click a.cancel': 'closeForm'
+  initialize: ->
+    super
+    @on 'form.done',
+      -> @closeForm()
+      this
+
+  clearForm: ->
+    @$('input[type=text]').val ''
 
   closeForm: (event) ->
-    event.preventDefault()
+    event?.preventDefault()
+    @clearForm()
+    @clearErrors()
     @hide()
+
+  events: ->
+    _.extend super,
+      'click a.cancel': 'closeForm'
+      'submit form': 'formSubmit'

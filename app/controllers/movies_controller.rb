@@ -1,6 +1,7 @@
 
 class MoviesController < ApplicationController
   respond_to :html
+  respond_to :json, only: [:create]
 
   def create
     new_movie.save

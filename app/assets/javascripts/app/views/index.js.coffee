@@ -8,6 +8,7 @@ class App.Views.Index extends App.CollectionView
   render: ->
     super
     @addMovie = new App.Views.New
+      collection: @collection
       el: @$('#new_movie')
     @addMovie.hide()
 
