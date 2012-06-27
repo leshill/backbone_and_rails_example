@@ -10,5 +10,5 @@
   %a(href = '/' class = 'back')
     Back to list
 .destroy
-  %a(href = '' data-confirm = 'Are you sure?' data-method = 'delete' rel = 'nofollow')
+  %a(href = '' class = 'delete')
     Delete Movie?

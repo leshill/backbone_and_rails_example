@@ -4,6 +4,12 @@ class App.View extends Backbone.View
     @presenter ||= options.presenter
     @selectionModel = options.selectionModel
 
+  destroy: ->
+    @hide()
+    @unbind()
+    @remove
+    @
+
   events: ->
     {}
 
@@ -39,6 +45,13 @@ class App.View extends Backbone.View
     @render() unless @_rendered?
     @$el.show()
     @
+
+  unbind: ->
+    @undelegateEvents()
+    @model.off(null, null, null) if @model
+    @collection.off(null, null, null) if @collection
+    # TODO
+    # undo other bindings (for example to models or jQuery)
 
   _template: (template) ->
     HoganTemplates[template]

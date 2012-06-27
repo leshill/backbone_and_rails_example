@@ -12,6 +12,7 @@ class App.CollectionView extends App.View
     @viewCache = new App.Cache
 
     @collection.on 'add', @add, @
+    @collection.on 'destroy', @modelDestroyed, @
     @collection.on 'reset', @reset, @
 
   add: (model, collection, options) ->
@@ -31,6 +32,12 @@ class App.CollectionView extends App.View
       view = @view.apply @, [model]
       @viewCache.add view
     view
+
+  modelDestroyed: (model, collection, options) ->
+    view = @getView(model)
+    @viewCache.remove(model)
+    view.destroy()
+
 
   render: ->
     super

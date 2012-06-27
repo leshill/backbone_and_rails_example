@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
-  respond_to :html, only: [:destroy, :index, :show]
-  respond_to :json, only: [:create]
+  respond_to :html, only: [:index, :show]
+  respond_to :json, only: [:create, :destroy]
 
   def create
     new_movie.save
@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
 
   def destroy
     movie.destroy
-    redirect_to root_path
+    respond_with movie
   end
 
   def populate
