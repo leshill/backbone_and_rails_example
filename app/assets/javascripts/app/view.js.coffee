@@ -3,6 +3,9 @@ class App.View extends Backbone.View
     @template ||= options.template
     @presenter ||= options.presenter
 
+  events: ->
+    {}
+
   html: (html) ->
     @$el.html html
     @
