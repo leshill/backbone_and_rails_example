@@ -1,9 +1,16 @@
 class App.Views.Index extends App.CollectionView
   template: 'index'
 
+  initialize: (options) ->
+    super
+    @collection.on 'add', @highlightNewView, @
+
   events: ->
     _.extend super,
       'click a.add': 'showAddMovie'
+
+  highlightNewView: (model, collection, options) ->
+    @getView(model).$el.effect 'highlight', 'slow'
 
   render: ->
     super
