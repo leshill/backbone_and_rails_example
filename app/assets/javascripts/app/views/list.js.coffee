@@ -1,5 +1,5 @@
-class App.Views.Index extends App.CollectionView
-  template: 'index'
+class App.Views.List extends App.CollectionView
+  template: 'list'
 
   initialize: (options) ->
     super

@@ -12,7 +12,7 @@ $(->
 
   selectionModel = new App.SelectionModel(movies)
 
-  view = new App.Views.Index
+  view = new App.Views.List
     collection: movies
     el: $('body')
     selectionModel: selectionModel
