@@ -11,3 +11,6 @@
 #{link_to 'Add Movie', new_movie_path}
 .populate
   #{link_to 'Populate', populate_movies_path}
+
+:javascript
+  App.init = #{movies.to_json};
