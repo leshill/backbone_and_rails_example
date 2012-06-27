@@ -1,6 +1,7 @@
 class App.View extends Backbone.View
   initialize: (options) ->
     @template ||= options.template
+    @presenter ||= options.presenter
 
   html: (html) ->
     @$el.html html
@@ -13,7 +14,9 @@ class App.View extends Backbone.View
     @
 
   renderContext: ->
-    if @model?
+    if @presenter?
+      @presenter.apply @, [@model]
+    else if @model?
       @model.toJSON()
     else
       {}

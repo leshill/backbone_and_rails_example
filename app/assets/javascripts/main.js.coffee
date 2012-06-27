@@ -1,5 +1,6 @@
 window.App = {
   Collections: {}
+  Presenters: {}
   Views: {}
 }
 
@@ -11,7 +12,10 @@ $(->
     el: $('body')
     selector: '#movie_list'
     view: (model) ->
-      new App.Views.Movie(model: model)
+      new App.Views.Movie
+        model: model
+        presenter: (model) ->
+          new App.Presenters.Movie model
 
   view.show()
 )

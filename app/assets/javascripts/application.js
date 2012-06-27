@@ -3,6 +3,7 @@
 //= require hogan
 //= require underscore
 //= require backbone
+//= require format
 //= require main
 //= require_tree ./templates
 //= require_tree ./app
