@@ -1,15 +1,6 @@
 %h1 Top Opening Weekends
-%ul
-  {{#movies}}
-  %li
-    %dl
-      %dd Name
-      %dt.name
-        %a(href='')
-          {{name}}
-      %dd Opening Weekend
-      %dt {{opening_weekend}}
-  {{/movies}}
+
+%ul#movie_list
 
 %a(href='')
   Add Movie

@@ -1,9 +1,2 @@
-class App.Views.Index extends App.View
+class App.Views.Index extends App.CollectionView
   template: 'index'
-
-  initialize: (options) ->
-    super
-    @data = options.data
-
-  renderContext: ->
-    _.extend super, movies: @data
