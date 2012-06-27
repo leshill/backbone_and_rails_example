@@ -1,6 +1,5 @@
-
 class MoviesController < ApplicationController
-  respond_to :html
+  respond_to :html, only: [:destroy, :index, :show]
   respond_to :json, only: [:create]
 
   def create
@@ -26,6 +25,10 @@ class MoviesController < ApplicationController
       Movie.create Hash[[:name, :opening_weekend, :total_gross, :percent_of_total].zip(data)]
     end
     redirect_to root_path
+  end
+
+  def show
+    render :index
   end
 
   private

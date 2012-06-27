@@ -7,4 +7,4 @@ class App.Views.Movie extends App.View
 
   showMovie: (event) ->
     event.preventDefault()
-    window.location = @model.url()
+    App.router.navigate @model.url(), trigger: true

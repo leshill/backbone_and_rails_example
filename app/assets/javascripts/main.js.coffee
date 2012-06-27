@@ -8,24 +8,32 @@ window.App = {
 $(->
   return unless App.init
 
+  moviePresenter = (model) -> new App.Presenters.Movie model
+
   movies = new App.Collections.Movies App.init
 
   selectionModel = new App.SelectionModel(movies)
 
-  view = new App.Views.List
+  list = new App.Views.List
     collection: movies
-    el: $('body')
+    el: $('#list')
     selectionModel: selectionModel
     selector: '#movie_list'
     view: (model) ->
       new App.Views.Movie
         model: model
-        presenter: (model) ->
-          new App.Presenters.Movie model
+        presenter: moviePresenter
 
-  selectionModel.bind 'select:none', () ->
-    view.show()
+  detail = new App.CollectionDetailView
+    collection: movies
+    el: $('#details')
+    selectionModel: selectionModel
+    view: (model) ->
+      new App.Views.Show
+        model: model
+        presenter: moviePresenter
 
-  router = new App.Router selectionModel: selectionModel
+  App.router = new App.Router selectionModel: selectionModel
+
   Backbone.history.start pushState: true
 )

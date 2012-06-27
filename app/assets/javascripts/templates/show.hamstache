@@ -1,0 +1,14 @@
+%h1 {{name}}
+%dl
+  %dd Opening Weekend
+  %dt {{opening_weekend}}
+  %dd Total Gross
+  %dt {{total_gross}}
+  %dd Percentage of Total
+  %dt {{percent_of_total}}
+.back
+  %a(href = '/' class = 'back')
+    Back to list
+.destroy
+  %a(href = '' data-confirm = 'Are you sure?' data-method = 'delete' rel = 'nofollow')
+    Delete Movie?
