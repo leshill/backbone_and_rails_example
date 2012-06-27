@@ -5,3 +5,4 @@
 //= require backbone
 //= require main
 //= require_tree ./templates
+//= require_tree ./app
