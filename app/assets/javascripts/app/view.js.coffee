@@ -2,6 +2,7 @@ class App.View extends Backbone.View
   initialize: (options) ->
     @template ||= options.template
     @presenter ||= options.presenter
+    @selectionModel = options.selectionModel
 
   events: ->
     {}

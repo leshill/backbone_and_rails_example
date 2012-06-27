@@ -3,7 +3,10 @@ class App.Views.Index extends App.CollectionView
 
   initialize: (options) ->
     super
+
     @collection.on 'add', @highlightNewView, @
+    @selectionModel.on 'select:none', @show, @
+    @selectionModel.on 'select', @hide, @
 
   events: ->
     _.extend super,
