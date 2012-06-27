@@ -1,0 +1,21 @@
+%form
+  .field
+    %label(for = 'name')
+      Name
+    %br
+    %input(type = 'text' id = 'name' name = 'name')
+  .field
+    %label(for = 'opening_weekend')
+      Opening Weekend
+    %br
+    %input(type = 'text' id = 'opening_weekend' name = 'opening_weekend')
+  .field
+    %label(for = 'total_gross')
+      Total Gross
+    %br
+    %input(type = 'text' id = 'total_gross' name = 'total_gross')
+  .action
+    %input(type = 'submit' name = 'commit' value='Create Movie' data-disable-with='Please wait...')
+    or
+    %a(href='' class='cancel')
+      Cancel

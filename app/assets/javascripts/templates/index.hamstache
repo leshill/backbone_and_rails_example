@@ -1,8 +1,9 @@
 %h1 Top Opening Weekends
 
+#new_movie
 %ul#movie_list
 
-%a(href='')
+%a(href='' class='add')
   Add Movie
 .populate
   %a(href='/movies/populate')

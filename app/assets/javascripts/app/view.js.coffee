@@ -6,6 +6,10 @@ class App.View extends Backbone.View
   events: ->
     {}
 
+  hide: ->
+    @$el.hide()
+    @
+
   html: (html) ->
     @$el.html html
     @
