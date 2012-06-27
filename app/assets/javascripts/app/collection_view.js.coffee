@@ -1,3 +1,4 @@
+#= require app/cache
 #= require app/view
 
 class App.CollectionView extends App.View
@@ -8,13 +9,28 @@ class App.CollectionView extends App.View
     @selector ||= options.selector
     @view ||= options.view
 
+    @viewCache = new App.Cache
+
+    @collection.on 'add', @add, @
     @collection.on 'reset', @reset, @
+
+  add: (model, collection, options) ->
+    newView = @getView(model).show()
+    if options.index == 0
+      @container().prepend newView.$el
+    else
+      existingModel = @collection.at options.index - 1
+      existingView = @getView existingModel
+      existingView.$el.after newView.$el
 
   container: ->
     @_container ||= @_ensureContainer()
 
   getView: (model) ->
-    @view.apply @, [model]
+    unless view = @viewCache.get model
+      view = @view.apply @, [model]
+      @viewCache.add view
+    view
 
   render: ->
     super
