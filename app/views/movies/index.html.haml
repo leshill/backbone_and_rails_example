@@ -1,0 +1,13 @@
+%h1 Top Opening Weekends
+%ul
+  - movies.each do |movie|
+    %li
+      %dl
+        %dd Name
+        %dt.name= link_to movie.name, movie_path(movie)
+        %dd Opening Weekend
+        %dt= number_to_currency movie.opening_weekend, precision: 0
+
+#{link_to 'Add Movie', new_movie_path}
+.populate
+  #{link_to 'Populate', populate_movies_path}

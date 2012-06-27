@@ -1,0 +1,12 @@
+%h1= movie.name
+%dl
+  %dd Opening Weekend
+  %dt= number_to_currency movie.opening_weekend, precision: 0
+  %dd Total Gross
+  %dt= number_to_currency movie.total_gross, precision: 0
+  %dd Percentage of Total
+  %dt= number_to_percentage movie.percent_of_total
+.back
+  = link_to 'Back to list', root_path
+.destroy
+  = link_to 'Delete Movie?', movie, :confirm => 'Are you sure?', :method => :delete

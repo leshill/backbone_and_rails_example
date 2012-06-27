@@ -1,0 +1,19 @@
+= form_for(new_movie) do |f|
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :opening_weekend
+    %br
+    = f.text_field :opening_weekend
+  .field
+    = f.label :percent_of_total
+    %br
+    = f.text_field :percent_of_total
+  .field
+    = f.label :total_gross
+    %br
+    = f.text_field :total_gross
+  .action
+    = f.submit
