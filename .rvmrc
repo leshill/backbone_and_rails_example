@@ -1,1 +1,1 @@
-rvm use @backbone_and_rails
+rvm use --create @backbone_and_rails
